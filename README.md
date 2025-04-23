@@ -95,9 +95,23 @@ Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk mengidentifikas
 ## Hasil Evaluasi Model
 Setelah melatih model, kami menguji model menggunakan data uji dan mendapatkan hasil sebagai berikut:
 
-- **Akurasi**: XX% (misalnya 95%)
-- **Presisi untuk kelas "orange"**: XX% (misalnya 96%)
-- **Recall untuk kelas "orange"**: XX% (misalnya 94%)
-- **F1-Score untuk kelas "orange"**: XX% (misalnya 95%)
+Akurasi:
+Akurasi: 94.35%
 
+Artinya, model berhasil memprediksi dengan benar sekitar 94.35% dari data uji. Ini adalah ukuran umum untuk mengevaluasi performa model secara keseluruhan.
+
+2. Presisi untuk Kelas "orange" (label 0):
+Presisi untuk kelas "orange": 0.95
+
+Ini berarti bahwa dari semua prediksi yang model buat sebagai jeruk (orange), 95% di antaranya benar-benar jeruk. Presisi mengukur akurasi prediksi positif.
+
+3. Recall untuk Kelas "orange" (label 0):
+Recall untuk kelas "orange": 0.94
+
+Recall mengukur seberapa baik model dalam menangkap semua contoh jeruk (orange) dari keseluruhan data yang benar-benar jeruk. Di sini, model berhasil menangkap 94% jeruk yang ada dalam data uji.
+
+4. F1-Score untuk Kelas "orange" (label 0):
+F1-Score untuk kelas "orange": 0.94
+
+F1-Score adalah rata-rata harmonis antara presisi dan recall. Nilai 0.94 menunjukkan bahwa model memiliki keseimbangan yang baik antara presisi dan recall untuk kelas "orange".
 Matriks kebingungannya menunjukkan distribusi hasil prediksi dengan jumlah **True Positives**, **False Positives**, **True Negatives**, dan **False Negatives**.
