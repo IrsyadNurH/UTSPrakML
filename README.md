@@ -95,7 +95,7 @@ Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk mengidentifikas
 ## Hasil Evaluasi Model
 Setelah melatih model, kami menguji model menggunakan data uji dan mendapatkan hasil sebagai berikut:
 
-Akurasi:
+1. Akurasi:
 Akurasi: 94.35%
 
 Artinya, model berhasil memprediksi dengan benar sekitar 94.35% dari data uji. Ini adalah ukuran umum untuk mengevaluasi performa model secara keseluruhan.
