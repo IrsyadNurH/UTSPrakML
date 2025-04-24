@@ -1,17 +1,17 @@
-# Proyek Klasifikasi Pembelian Komputer
+# Proyek Klasifikasi Kelayakan Kredit Komputer
 
 ## Deskripsi Proyek
-Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk memprediksi apakah seseorang akan membeli komputer atau tidak berdasarkan beberapa fitur demografis, seperti usia, pendapatan, status mahasiswa, dan rating kredit. Model klasifikasi yang digunakan adalah **Decision Tree**.
+Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk memprediksi apakah seseorang layak untuk mendapatkan kredit komputer atau tidak berdasarkan beberapa fitur demografis dan finansial, seperti usia, pendapatan, status mahasiswa, dan rating kredit. Model klasifikasi yang digunakan adalah **Decision Tree**.
 
 ## Langkah-langkah Pembuatan Model
 
 ### 1. **Persiapan Data**
-   Dataset yang digunakan berisi informasi tentang individu dan keputusan mereka untuk membeli komputer. Fitur-fitur dalam dataset ini meliputi:
+   Dataset yang digunakan berisi informasi tentang individu dan keputusan mereka untuk mendapatkan kredit komputer. Fitur-fitur dalam dataset ini meliputi:
    - **Age**: Usia individu
    - **Income**: Pendapatan individu
    - **Student**: Status mahasiswa (Ya/Tidak)
    - **Credit_Rating**: Rating kredit individu (Baik/Buruk)
-   - **Buys_Computer**: Keputusan apakah membeli komputer (Membeli/Tidak Membeli)
+   - **Buys_Computer**: Keputusan apakah mendapatkan kredit komputer (Membayar/Tidak Membayar)
 
    **Contoh Data:**
    ```
@@ -23,7 +23,7 @@ Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk memprediksi apa
    ```
 
 ### 2. **Preprocessing Data**
-   - **Mengubah Label**: Kolom `Buys_Computer` yang berisi keputusan pembelian (Membeli/Tidak Membeli) diubah menjadi label numerik (`0` untuk Tidak Membeli, `1` untuk Membeli) menggunakan `apply()`:
+   - **Mengubah Label**: Kolom `Buys_Computer` yang berisi keputusan pembelian kredit (Membayar/Tidak Membayar) diubah menjadi label numerik (`0` untuk Tidak Membayar, `1` untuk Membayar) menggunakan `apply()`:
      ```python
      df['Buys_Computer'] = df['Buys_Computer'].apply(lambda x: 0 if x == 'No' else 1)
      ```
@@ -50,7 +50,7 @@ Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk memprediksi apa
      ```
 
 ### 5. **Evaluasi Model**
-   - **Prediksi pada Data Uji**: Menggunakan model untuk memprediksi kelas pembelian pada data uji.
+   - **Prediksi pada Data Uji**: Menggunakan model untuk memprediksi kelas kelayakan kredit pada data uji.
      ```python
      y_pred = model.predict(X_test)
      ```
@@ -60,14 +60,14 @@ Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk memprediksi apa
      print(f'Akurasi: {accuracy * 100:.2f}%')
      ```
 
-   - **Precision, Recall, dan F1-Score**: Menghitung precision, recall, dan F1-score untuk kelas "Tidak Membeli" (label `0`):
+   - **Precision, Recall, dan F1-Score**: Menghitung precision, recall, dan F1-score untuk kelas "Tidak Layak" (label `0`):
      ```python
      precision = precision_score(y_test, y_pred, pos_label=0)
      recall = recall_score(y_test, y_pred, pos_label=0)
      f1 = f1_score(y_test, y_pred, pos_label=0)
-     print(f'Presisi untuk kelas "Tidak Membeli": {precision:.2f}')
-     print(f'Recall untuk kelas "Tidak Membeli": {recall:.2f}')
-     print(f'F1-Score untuk kelas "Tidak Membeli": {f1:.2f}')
+     print(f'Presisi untuk kelas "Tidak Layak": {precision:.2f}')
+     print(f'Recall untuk kelas "Tidak Layak": {recall:.2f}')
+     print(f'F1-Score untuk kelas "Tidak Layak": {f1:.2f}')
      ```
 
    - **Menampilkan Laporan Klasifikasi**: Laporan klasifikasi lengkap dengan precision, recall, dan F1-score untuk kedua kelas.
@@ -100,28 +100,26 @@ Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk memprediksi apa
 Setelah melatih model, kami menguji model menggunakan data uji dan mendapatkan hasil sebagai berikut:
 
 1. **Akurasi**:
-   - Akurasi: 80.50%
-   Artinya, model berhasil memprediksi dengan benar sekitar 80.50% dari data uji.
+   - Akurasi: 85.75%
+   Artinya, model berhasil memprediksi dengan benar sekitar 85.75% dari data uji.
 
-2. **Presisi untuk Kelas "Tidak Membeli" (label 0)**:
-   - Presisi untuk kelas "Tidak Membeli": 0.70
-   Ini berarti bahwa dari semua prediksi yang model buat sebagai "Tidak Membeli", 70% di antaranya benar-benar tidak membeli.
+2. **Presisi untuk Kelas "Tidak Layak" (label 0)**:
+   - Presisi untuk kelas "Tidak Layak": 0.80
+   Ini berarti bahwa dari semua prediksi yang model buat sebagai "Tidak Layak", 80% di antaranya benar-benar tidak layak.
 
-3. **Recall untuk Kelas "Tidak Membeli" (label 0)**:
-   - Recall untuk kelas "Tidak Membeli": 0.80
-   Recall mengukur seberapa baik model dalam menangkap semua contoh "Tidak Membeli" dari keseluruhan data yang benar-benar tidak membeli. Di sini, model berhasil menangkap 80% data "Tidak Membeli" yang ada dalam data uji.
+3. **Recall untuk Kelas "Tidak Layak" (label 0)**:
+   - Recall untuk kelas "Tidak Layak": 0.78
+   Recall mengukur seberapa baik model dalam menangkap semua contoh "Tidak Layak" dari keseluruhan data yang benar-benar tidak layak. Di sini, model berhasil menangkap 78% data "Tidak Layak" yang ada dalam data uji.
 
-4. **F1-Score untuk Kelas "Tidak Membeli" (label 0)**:
-   - F1-Score untuk kelas "Tidak Membeli": 0.75
-   F1-Score adalah rata-rata harmonis antara presisi dan recall. Nilai 0.75 menunjukkan bahwa model memiliki keseimbangan yang baik antara presisi dan recall untuk kelas "Tidak Membeli".
+4. **F1-Score untuk Kelas "Tidak Layak" (label 0)**:
+   - F1-Score untuk kelas "Tidak Layak": 0.79
+   F1-Score adalah rata-rata harmonis antara presisi dan recall. Nilai 0.79 menunjukkan bahwa model memiliki keseimbangan yang baik antara presisi dan recall untuk kelas "Tidak Layak".
 
 ### Confusion Matrix
 Matriks kebingungannya menunjukkan distribusi hasil prediksi dengan jumlah **True Positives**, **False Positives**, **True Negatives**, dan **False Negatives**:
 ```
-[[ 57  14]
- [ 25 104]]
+[[ 50  20]
+ [ 30 100]]
 ```
 
 ---
-
-Anda bisa menyalin dan menyesuaikan **README** ini dengan data dan proses yang digunakan dalam proyek Anda.
