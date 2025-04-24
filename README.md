@@ -1,4 +1,4 @@
-# Proyek Klasifikasi Buah: Jeruk vs Anggur
+**# Proyek Klasifikasi Buah: Jeruk vs Anggur
 
 ## Deskripsi Proyek
 Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk mengidentifikasi apakah sebuah buah adalah jeruk atau anggur berdasarkan fitur-fitur seperti diameter, berat, dan nilai warna (red, green, blue). Model klasifikasi yang digunakan adalah **Decision Tree**.
@@ -21,7 +21,7 @@ Proyek ini bertujuan untuk mengembangkan model klasifikasi untuk mengidentifikas
 ### 2. **Preprocessing Data**
    - **Mengubah Label**: Kolom `name` yang berisi nama buah ("orange" dan "grapefruit") diubah menjadi label numerik (`0` untuk jeruk, `1` untuk anggur) menggunakan `apply()`:
      ```python
-     df['label'] = df['name'].apply(lambda x: 0 if x == 'orange' else 1)
+     df['label'] = df['name'].apply(lambda x: 0 if x == 'orange' else 1)Q
      ```
    - **Memisahkan Fitur dan Label**:
      - Fitur: `diameter`, `weight`, `red`, `green`, `blue`.
@@ -115,3 +115,4 @@ F1-Score untuk kelas "orange": 0.94
 
 F1-Score adalah rata-rata harmonis antara presisi dan recall. Nilai 0.94 menunjukkan bahwa model memiliki keseimbangan yang baik antara presisi dan recall untuk kelas "orange".
 Matriks kebingungannya menunjukkan distribusi hasil prediksi dengan jumlah **True Positives**, **False Positives**, **True Negatives**, dan **False Negatives**.
+**
