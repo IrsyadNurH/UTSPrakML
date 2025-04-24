@@ -1,7 +1,3 @@
-Berikut adalah **README** yang diubah dan disesuaikan menggunakan data yang telah diberikan:
-
----
-
 # Proyek Klasifikasi Pembelian Komputer
 
 ## Deskripsi Proyek
